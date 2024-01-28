@@ -24,6 +24,10 @@ abstract class Facade implements FacadeInterface
         return $instance->$method(...$args);
     }
 
+    /**
+     * 初始化容器
+     * @return ContainerInterface|null
+     */
     public static function getFacadeApp(): ?ContainerInterface
     {
         if (self::$app === null) {
