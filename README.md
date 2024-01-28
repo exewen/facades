@@ -4,9 +4,9 @@ composer require exewen/facades
 ```
 ## 复制配置
 ```sh
-cp -rf exewen/logger/publish/exewen /you_project/config
-cp -rf exewen/http/publish/exewen /you_project/config
-cp -rf exewen/nacos/publish/exewen /you_project/config
+cp -rf exewen/logger/publish/exewen /your_project/config
+cp -rf exewen/http/publish/exewen /your_project/config
+cp -rf exewen/nacos/publish/exewen /your_project/config
 ``` 
 ## 初始化
 ```php
