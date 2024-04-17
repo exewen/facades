@@ -1,3 +1,5 @@
+## facades
+自行注册Di
 ## 安装组件
 ```sh
 composer require exewen/facades
