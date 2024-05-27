@@ -17,7 +17,7 @@
     "require": {
         "php": ">=7.3",
         "exewen/nacos": "^1.0",
-        "exewen/cdiscount-php-sdk": "dev-develop"
+        "exewen/cdiscount-php-sdk": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7 | ^6.5 | ^7.5 | ^8.4 | ^9.3"
