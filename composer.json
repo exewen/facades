@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=7.3",
-        "exewen/nacos": "dev-develop",
+        "exewen/nacos": "^1.0",
         "exewen/cdiscount-php-sdk": "dev-develop"
     },
     "require-dev": {
