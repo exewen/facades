@@ -10,7 +10,8 @@ use Exewen\Facades\Exception\FacadeException;
 
 abstract class Facade implements FacadeInterface
 {
-    protected static ?ContainerInterface $app = null;
+//    protected static ?ContainerInterface $app = null;
+    protected static $app = null;
 
     public static function __callStatic($method, $args)
     {
