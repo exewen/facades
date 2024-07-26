@@ -10,16 +10,43 @@ use Exewen\Facades\Exception\FacadeException;
 
 abstract class Facade implements FacadeInterface
 {
-//    protected static ?ContainerInterface $app = null;
-    protected static $app = null;
+    /**
+     * 记录不同Facade是否注册
+     * @var array
+     */
+    protected static $registerMap = [];
 
+    /**
+     * 服务名
+     * @return string
+     */
+    public static function getFacadeAccessor(): string
+    {
+        return FacadeInterface::class;
+    }
+
+    /**
+     * 注册
+     * @return array
+     */
+    public static function getProviders(): array
+    {
+        return [];
+    }
+
+    /**
+     * Facade 调用
+     * @param $method
+     * @param $args
+     * @return mixed
+     */
     public static function __callStatic($method, $args)
     {
         $facadeApp = static::getFacadeApp();
 
         $instance = $facadeApp->get(static::getFacadeAccessor());
         if (!$instance) {
-            throw new FacadeException('A facade root has not been set.');
+            throw new FacadeException('A facade root has not been set :' . static::getFacadeAccessor());
         }
 
         return $instance->$method(...$args);
@@ -31,12 +58,36 @@ abstract class Facade implements FacadeInterface
      */
     public static function getFacadeApp(): ?ContainerInterface
     {
-        if (self::$app === null) {
-            self::$app = new Container();
-            self::$app->setProviders(static::getProviders());
+        $container = Container::getInstance();
+        if ($container === null) {
+            $container = new Container();
         }
-        return self::$app;
+        /** 检查门面是否注册 */
+        if (!self::hasRegister(static::getFacadeAccessor())) {
+            $container->setProviders(static::getProviders());
+            self::setRegister(static::getFacadeAccessor());
+        }
+        return $container;
     }
 
+    /**
+     * 是否注册
+     * @param string $class
+     * @return false|mixed
+     */
+    public static function hasRegister(string $class)
+    {
+        return self::$registerMap[$class] ?? false;
+    }
+
+    /**
+     * 记录注册
+     * @param string $class
+     * @return void
+     */
+    public static function setRegister(string $class)
+    {
+        self::$registerMap[$class] = true;
+    }
 
 }
