@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ExewenTest\Facades;
 
+use Exewen\Facades\LoggerFacade;
 use ExewenTest\Facades\Facade\Test\TestFacade;
 use ExewenTest\Facades\Facade\TestLog\TestLogFacade;
 use PHPUnit\Framework\TestCase;
@@ -25,6 +26,7 @@ class FacadeTest extends TestCase
         echo $result_2 . PHP_EOL;
         $result_2 = TestLogFacade::log('log');
         echo $result_2 . PHP_EOL;
+        LoggerFacade::info("test");
         $this->assertNotEmpty($result_2);
     }
 
