@@ -15,7 +15,7 @@
         "facades"
     ],
     "require": {
-        "php": ">=7.3|^8.0",
+        "php": ">=7.3",
         "exewen/http": "^1"
     },
     "require-dev": {
