@@ -58,14 +58,20 @@ abstract class Facade implements FacadeInterface
      */
     public static function getFacadeApp(): ?ContainerInterface
     {
-        $container = Container::getInstance();
-        if ($container === null) {
-            $container = new Container();
-        }
+        $container = self::getContainer();
         /** 检查门面是否注册 */
         if (!self::hasRegister(static::getFacadeAccessor())) {
             $container->setProviders(static::getProviders());
             self::setRegister(static::getFacadeAccessor());
+        }
+        return $container;
+    }
+
+    public static function getContainer()
+    {
+        $container = Container::getInstance();
+        if ($container === null) {
+            $container = new Container();
         }
         return $container;
     }
