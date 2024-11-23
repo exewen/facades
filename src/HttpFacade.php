@@ -6,6 +6,7 @@ namespace Exewen\Facades;
 use Exewen\Http\Constants\HttpEnum;
 use Exewen\Http\Contract\HttpClientInterface;
 use Exewen\Http\HttpProvider;
+use Exewen\Logger\LoggerProvider;
 
 /**
  * @method static string get(string $driver, string $uri, array $params = [], array $header = [], array $options = [])
@@ -25,6 +26,6 @@ class HttpFacade extends Facade
 
     public static function getProviders(): array
     {
-        return [HttpProvider::class];
+        return [HttpProvider::class,LoggerProvider::class];
     }
 }
