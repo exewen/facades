@@ -76,7 +76,7 @@ abstract class Facade implements FacadeInterface
      */
     public static function getFacadeApp(): ?ContainerInterface
     {
-        $container = ApplicationContext::getContainer();
+        $container = AppFacade::getContainer();
         /** 检查门面是否注册 */
         if (!self::hasRegister(static::getFacadeAccessor())) {
             $container->setProviders(static::getProviders());

@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Exewen\Facades;
 
 use Exewen\Di\Container;
+use Exewen\Di\Context\ApplicationContext;
 
 class AppFacade
 {
@@ -13,11 +14,7 @@ class AppFacade
      */
     public static function getContainer()
     {
-        $container = Container::getInstance();
-        if ($container === null) {
-            $container = new Container();
-        }
-        return $container;
+        return ApplicationContext::getContainer();
     }
 
     /**
