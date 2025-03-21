@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Exewen\Facades;
 
-use Exewen\Di\Container;
 use Exewen\Di\Contract\ContainerInterface;
 use Exewen\Facades\Contract\FacadeInterface;
 use Exewen\Di\Context\ApplicationContext;
@@ -84,15 +83,6 @@ abstract class Facade implements FacadeInterface
             self::setRegister(static::getFacadeAccessor());
         }
         return $container;
-    }
-
-    /**
-     * @deprecated 替换为 ApplicationContext::getContainer()
-     * @return Container|ContainerInterface|null
-     */
-    public static function getContainer()
-    {
-        return ApplicationContext::getContainer();
     }
 
     /**
