@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Facade测试" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+    <TestRunner class="ExewenTest\Facades\FacadeTest" file="$PROJECT_DIR$/tests/FacadeTest.php" scope="Class" />
+    <method v="2" />
+  </configuration>
+</component>
